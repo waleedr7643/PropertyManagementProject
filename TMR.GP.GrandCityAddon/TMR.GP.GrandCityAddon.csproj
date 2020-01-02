@@ -1,0 +1,618 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A56DF379-44FB-4211-B2D3-DE117150F17A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TMR.GP.GrandCityAddon</RootNamespace>
+    <AssemblyName>TMRRems</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="DACs\AllocationCode.cs" />
+    <Compile Include="DACs\CancellationCode.cs" />
+    <Compile Include="DACs\DataAccess_2.cs" />
+    <Compile Include="DACs\DataAccess_1.cs" />
+    <Compile Include="DACs\DataAccess_3.cs" />
+    <Compile Include="DACs\GPIntegration.cs" />
+    <Compile Include="DACs\InstallmentPlans.cs" />
+    <Compile Include="DACs\MemberShipCode.cs" />
+    <Compile Include="DACs\ReactivationCode.cs" />
+    <Compile Include="DACs\RefundCode.cs" />
+    <Compile Include="DACs\RevaluationCode.cs" />
+    <Compile Include="DACs\SetupCodesDeletetion.cs" />
+    <Compile Include="DACs\TransferHistoryCode.cs" />
+    <Compile Include="DACs\UserManagementCode.cs" />
+    <Compile Include="DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityClasses\EntityClasses_1.cs" />
+    <Compile Include="EntityClasses\EntityClassses_3.cs" />
+    <Compile Include="frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\GCKAllocationsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKAllocationsReport.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GCKCancellationsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKCancellationsReport.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GCKInventory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKInventory.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GCKReactivationsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKReactivationsReport.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GCKRefundReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKRefundReport.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GCKSoldPlots.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKSoldPlots.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GCKTransferReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKTransferReport.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GraanaClientWiseProfile.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GraanaClientWiseProfile.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GraanaClientWisePurchaseHistory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GraanaClientWisePurchaseHistory.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmClientWisePurchaseParm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmClientWisePurchaseParm.Designer.cs">
+      <DependentUpon>frmClientWisePurchaseParm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmGeneralProcessesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmGeneralProcessesReport.Designer.cs">
+      <DependentUpon>frmGeneralProcessesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlan.Designer.cs">
+      <DependentUpon>frmInstallmentPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmAllocationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmAllocationList.Designer.cs">
+      <DependentUpon>frmAllocationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmAttachmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmAttachmentList.Designer.cs">
+      <DependentUpon>frmAttachmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmCancellation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmCancellation.Designer.cs">
+      <DependentUpon>frmCancellation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmCancellationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmCancellationList.Designer.cs">
+      <DependentUpon>frmCancellationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmDeAllocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmDeAllocation.Designer.cs">
+      <DependentUpon>frmDeAllocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmDealloctionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmDealloctionList.Designer.cs">
+      <DependentUpon>frmDealloctionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlanSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlanSetup.Designer.cs">
+      <DependentUpon>frmInstallmentPlanSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmInventoryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmInventoryReport.Designer.cs">
+      <DependentUpon>frmInventoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmMemberLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmMemberLookup.Designer.cs">
+      <DependentUpon>frmMemberLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReactivationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReactivationList.Designer.cs">
+      <DependentUpon>frmReactivationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmRevaluationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmRevaluationList.Designer.cs">
+      <DependentUpon>frmRevaluationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmRefund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmRefund.Designer.cs">
+      <DependentUpon>frmRefund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmRefundList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmRefundList.Designer.cs">
+      <DependentUpon>frmRefundList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmSizeCodePriceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmSizeCodePriceList.Designer.cs">
+      <DependentUpon>frmSizeCodePriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmSoldPlotsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmSoldPlotsReport.Designer.cs">
+      <DependentUpon>frmSoldPlotsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmTransfer.Designer.cs">
+      <DependentUpon>frmTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmTransferList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmTransferList.Designer.cs">
+      <DependentUpon>frmTransferList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnit.Designer.cs">
+      <DependentUpon>frmUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EntityClasses\EntityClasses_2.cs" />
+    <Compile Include="UserForms\frmAllocation.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UserForms\frmAllocation.designer.cs">
+      <DependentUpon>frmAllocation.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UserForms\frmBlock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmBlock.designer.cs">
+      <DependentUpon>frmBlock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmMemberRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmMemberRegistration.designer.cs">
+      <DependentUpon>frmMemberRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmProjects.designer.cs">
+      <DependentUpon>frmProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitRevaluation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitRevaluation.Designer.cs">
+      <DependentUpon>frmUnitRevaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmDirectors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmDirectors.designer.cs">
+      <DependentUpon>frmDirectors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitType.designer.cs">
+      <DependentUpon>frmUnitType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitCategory.designer.cs">
+      <DependentUpon>frmUnitCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitOfM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitOfM.designer.cs">
+      <DependentUpon>frmUnitOfM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitSize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitSize.designer.cs">
+      <DependentUpon>frmUnitSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReactivationss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReactivationss.Designer.cs">
+      <DependentUpon>frmReactivationss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitsLookUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitsLookUp.Designer.cs">
+      <DependentUpon>frmUnitsLookUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReactivation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReactivation.Designer.cs">
+      <DependentUpon>frmReactivation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnsentToGPList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnsentToGPList.Designer.cs">
+      <DependentUpon>frmUnsentToGPList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUserLogin.Designer.cs">
+      <DependentUpon>frmUserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmTransferPendingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmTransferPendingList.Designer.cs">
+      <DependentUpon>frmTransferPendingList.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GCKAllocationsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKAllocationsReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GCKCancellationsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKCancellationsReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GCKInventory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKInventory.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GCKReactivationsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKReactivationsReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GCKRefundReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKRefundReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GCKSoldPlots.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKSoldPlots.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GCKTransferReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKTransferReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GraanaClientWiseProfile.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GraanaClientWiseProfile.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GraanaClientWisePurchaseHistory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GraanaClientWisePurchaseHistory.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmClientWisePurchaseParm.resx">
+      <DependentUpon>frmClientWisePurchaseParm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmGeneralProcessesReport.resx">
+      <DependentUpon>frmGeneralProcessesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmInstallmentPlanSetup.resx">
+      <DependentUpon>frmInstallmentPlanSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmInventoryReport.resx">
+      <DependentUpon>frmInventoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmRevaluationList.resx">
+      <DependentUpon>frmRevaluationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmSizeCodePriceList.resx">
+      <DependentUpon>frmSizeCodePriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmSoldPlotsReport.resx">
+      <DependentUpon>frmSoldPlotsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmTransferList.resx">
+      <DependentUpon>frmTransferList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnsentToGPList.resx">
+      <DependentUpon>frmUnsentToGPList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUserLogin.resx">
+      <DependentUpon>frmUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmTransferPendingList.resx">
+      <DependentUpon>frmTransferPendingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmAllocationList.resx">
+      <DependentUpon>frmAllocationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmAttachmentList.resx">
+      <DependentUpon>frmAttachmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmCancellation.resx">
+      <DependentUpon>frmCancellation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmCancellationList.resx">
+      <DependentUpon>frmCancellationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmDeAllocation.resx">
+      <DependentUpon>frmDeAllocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmDealloctionList.resx">
+      <DependentUpon>frmDealloctionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmInstallmentPlan.resx">
+      <DependentUpon>frmInstallmentPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmMemberLookup.resx">
+      <DependentUpon>frmMemberLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReactivationList.resx">
+      <DependentUpon>frmReactivationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmRefund.resx">
+      <DependentUpon>frmRefund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmRefundList.resx">
+      <DependentUpon>frmRefundList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmTransfer.resx">
+      <DependentUpon>frmTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnit.resx">
+      <DependentUpon>frmUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserForms\frmAllocation.resx">
+      <DependentUpon>frmAllocation.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmBlock.resx">
+      <DependentUpon>frmBlock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmMemberRegistration.resx">
+      <DependentUpon>frmMemberRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmProjects.resx">
+      <DependentUpon>frmProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitRevaluation.resx">
+      <DependentUpon>frmUnitRevaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmDirectors.resx">
+      <DependentUpon>frmDirectors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitType.resx">
+      <DependentUpon>frmUnitType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitCategory.resx">
+      <DependentUpon>frmUnitCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitOfM.resx">
+      <DependentUpon>frmUnitOfM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitSize.resx">
+      <DependentUpon>frmUnitSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReactivationss.resx">
+      <DependentUpon>frmReactivationss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitsLookUp.resx">
+      <DependentUpon>frmUnitsLookUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReactivation.resx">
+      <DependentUpon>frmReactivation.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ApproveButton.png" />
+    <Content Include="Resources\AttachButton.png" />
+    <Content Include="Resources\CancelButton.png" />
+    <Content Include="Resources\ClearButton.png" />
+    <None Include="Resources\DashboardBG.jpg" />
+    <Content Include="Resources\DeleteButton.png" />
+    <Content Include="Resources\Files.png" />
+    <Content Include="Resources\Load Image.png" />
+    <Content Include="Resources\Load Image1.png" />
+    <Content Include="Resources\LoadImage.bmp" />
+    <Content Include="Resources\LoadImage.png" />
+    <Content Include="Resources\man-hi.png" />
+    <Content Include="Resources\PrintButton.png" />
+    <None Include="Resources\process_48px.png" />
+    <None Include="Resources\project_48px.png" />
+    <Content Include="Resources\RedisplayButton.png" />
+    <None Include="Resources\request_service_48px.png" />
+    <Content Include="Resources\SaveButton.png" />
+    <Content Include="Resources\SelectButton.png" />
+    <None Include="Resources\total_sales_1_48px.png" />
+    <Content Include="Scripts\GrandCityAlterBLOCKSP25Apr19Wr.sql" />
+    <Content Include="Scripts\GrandCityBLOCKSP25Apr19Wr.sql" />
+    <Content Include="Scripts\GrandCityBLOCKTable25Apr19Wr.sql" />
+    <Content Include="Scripts\GrandCitySP24-04-2019.sql" />
+    <Content Include="Scripts\GrandCitySPPartnerAndNominee30April2019Wr.sql" />
+    <Content Include="Scripts\GrandCitySps24Apr19Sj.sql" />
+    <Content Include="Scripts\GrandCityTablePartnerAndNominee30April2019Wr.sql" />
+    <Content Include="Scripts\GrandCityTables24-04-2019.sql" />
+    <Content Include="Scripts\GrandCityTables24Apr19Sj.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

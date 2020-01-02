@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85014DE7-9B99-43E9-8168-91E0B3B1C790}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TMR.GP.REMSAddin</RootNamespace>
+    <AssemblyName>TMR.GP.REMSAddin</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Application.Dynamics">
+      <HintPath>C:\Program Files (x86)\Microsoft Dynamics\GP2018$GP GCITY ALPHA\Application.Dynamics.dll</HintPath>
+    </Reference>
+    <Reference Include="Application.MetalineAddin">
+      <HintPath>C:\Program Files (x86)\Microsoft Dynamics\GP2018$GP GCITY ALPHA\Application.MetalineAddin.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\FlashControlV71.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dexterity.Bridge">
+      <HintPath>C:\Program Files (x86)\Microsoft Dynamics\GP2018$GP GCITY ALPHA\Microsoft.Dexterity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GPAddin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\NewReports\07-ReceiptPrintContainer.cs">
+      <DependentUpon>07-ReceiptPrintContainer.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NewReports\01-InventoryReportSizeWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>01-InventoryReportSizeWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewReports\02-InventoryReportSectorWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>02-InventoryReportSectorWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewReports\03-SizeWiseQuota.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>03-SizeWiseQuota.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewReports\04-SectorWiseQuota.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>04-SectorWiseQuota.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewReports\05-QuotaWiseReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>05-QuotaWiseReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewReports\07-ReceiptPrint.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>07-ReceiptPrint.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewReports\08-MemberRegistration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>08-MemberRegistration.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewReports\09-MasterSalesReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>09-MasterSalesReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewReports\14-NotClearedReceiptsReport.cs">
+      <DependentUpon>14-NotClearedReceiptsReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NewReports\13-ReceiptDetailReport.cs">
+      <DependentUpon>13-ReceiptDetailReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NewReports\12-DuesOutstandingReport.cs">
+      <DependentUpon>12-DuesOutstandingReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NewReports\10-UnitsList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>10-UnitsList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewReports\11-RecoveryDueReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>11-RecoveryDueReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKAllocationsReport.cs">
+      <DependentUpon>GCKAllocationsReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKCancellationsReport.cs">
+      <DependentUpon>GCKCancellationsReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKClientWiseProfile.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKClientWiseProfile.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKClientWisePurchaseHistory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKClientWisePurchaseHistory.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKInventory.cs">
+      <DependentUpon>GCKInventory.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKMemberInfo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCKMemberInfo.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKReactivationsReport.cs">
+      <DependentUpon>GCKReactivationsReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKRefundReport.cs">
+      <DependentUpon>GCKRefundReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKSoldPlots.cs">
+      <DependentUpon>GCKSoldPlots.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\OldReports\GCKTransferReport.cs">
+      <DependentUpon>GCKTransferReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="UserForms\frmNotClearedReceiptReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmNotClearedReceiptReport.Designer.cs">
+      <DependentUpon>frmNotClearedReceiptReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptDetailReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptDetailReport.Designer.cs">
+      <DependentUpon>frmReceiptDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmDuesOutstandingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmDuesOutstandingReport.Designer.cs">
+      <DependentUpon>frmDuesOutstandingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmRecoveryDueReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmRecoveryDueReport.Designer.cs">
+      <DependentUpon>frmRecoveryDueReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptAttachmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptAttachmentList.Designer.cs">
+      <DependentUpon>frmReceiptAttachmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmCommissionEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmCommissionEntry.Designer.cs">
+      <DependentUpon>frmCommissionEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmProspect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmProspect.Designer.cs">
+      <DependentUpon>frmProspect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmProspectLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmProspectLookup.Designer.cs">
+      <DependentUpon>frmProspectLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptEntry - Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptEntry - Old.Designer.cs">
+      <DependentUpon>frmReceiptEntry - Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmCommissionEntryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmCommissionEntryList.Designer.cs">
+      <DependentUpon>frmCommissionEntryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmMasterSalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmMasterSalesReport.Designer.cs">
+      <DependentUpon>frmMasterSalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitListReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitListReport.Designer.cs">
+      <DependentUpon>frmUnitListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnsentCommList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnsentCommList.Designer.cs">
+      <DependentUpon>frmUnsentCommList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnsentReceiptsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnsentReceiptsList.Designer.cs">
+      <DependentUpon>frmUnsentReceiptsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptsList.Designer.cs">
+      <DependentUpon>frmReceiptsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmGeneralAccountingProcessReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmGeneralAccountingProcessReport.Designer.cs">
+      <DependentUpon>frmGeneralAccountingProcessReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmAllocation.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UserForms\frmAllocation.designer.cs">
+      <DependentUpon>frmAllocation.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UserForms\frmAllocationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmAllocationList.Designer.cs">
+      <DependentUpon>frmAllocationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmAttachmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmAttachmentList.Designer.cs">
+      <DependentUpon>frmAttachmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmBlock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmBlock.designer.cs">
+      <DependentUpon>frmBlock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmCancellation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmCancellation.Designer.cs">
+      <DependentUpon>frmCancellation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmCancellationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmCancellationList.Designer.cs">
+      <DependentUpon>frmCancellationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmClientWisePurchaseParm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmClientWisePurchaseParm.Designer.cs">
+      <DependentUpon>frmClientWisePurchaseParm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmDeAllocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmDeAllocation.Designer.cs">
+      <DependentUpon>frmDeAllocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmDealloctionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmDealloctionList.Designer.cs">
+      <DependentUpon>frmDealloctionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReceiptEntry.Designer.cs">
+      <DependentUpon>frmReceiptEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmRecoveryTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmRecoveryTypes.designer.cs">
+      <DependentUpon>frmRecoveryTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmDirectors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmDirectors.designer.cs">
+      <DependentUpon>frmDirectors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmGeneralProcessesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmGeneralProcessesReport.Designer.cs">
+      <DependentUpon>frmGeneralProcessesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlan.Designer.cs">
+      <DependentUpon>frmInstallmentPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlanSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlanSetup.Designer.cs">
+      <DependentUpon>frmInstallmentPlanSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmInventoryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmInventoryReport.Designer.cs">
+      <DependentUpon>frmInventoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmMemberLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmMemberLookup.Designer.cs">
+      <DependentUpon>frmMemberLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmMemberRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmMemberRegistration.designer.cs">
+      <DependentUpon>frmMemberRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmProjects.designer.cs">
+      <DependentUpon>frmProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReactivation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReactivation.Designer.cs">
+      <DependentUpon>frmReactivation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReactivationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReactivationList.Designer.cs">
+      <DependentUpon>frmReactivationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmReactivationss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmReactivationss.Designer.cs">
+      <DependentUpon>frmReactivationss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmRefund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmRefund.Designer.cs">
+      <DependentUpon>frmRefund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmRefundList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmRefundList.Designer.cs">
+      <DependentUpon>frmRefundList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmRevaluationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmRevaluationList.Designer.cs">
+      <DependentUpon>frmRevaluationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmSizeCodePriceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmSizeCodePriceList.Designer.cs">
+      <DependentUpon>frmSizeCodePriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmSoldPlotsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmSoldPlotsReport.Designer.cs">
+      <DependentUpon>frmSoldPlotsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmTransfer.Designer.cs">
+      <DependentUpon>frmTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmTransferList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmTransferList.Designer.cs">
+      <DependentUpon>frmTransferList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmTransferPendingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmTransferPendingList.Designer.cs">
+      <DependentUpon>frmTransferPendingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnit.Designer.cs">
+      <DependentUpon>frmUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitCategory.designer.cs">
+      <DependentUpon>frmUnitCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitOfM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitOfM.designer.cs">
+      <DependentUpon>frmUnitOfM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmOtherRecoveryPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmOtherRecoveryPlan.Designer.cs">
+      <DependentUpon>frmOtherRecoveryPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitRevaluation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitRevaluation.Designer.cs">
+      <DependentUpon>frmUnitRevaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitSize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitSize.designer.cs">
+      <DependentUpon>frmUnitSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlanLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmInstallmentPlanLookup.Designer.cs">
+      <DependentUpon>frmInstallmentPlanLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitsLookUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitsLookUp.Designer.cs">
+      <DependentUpon>frmUnitsLookUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnitType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnitType.designer.cs">
+      <DependentUpon>frmUnitType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUnsentToGPList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUnsentToGPList.Designer.cs">
+      <DependentUpon>frmUnsentToGPList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\frmUserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUserLogin.Designer.cs">
+      <DependentUpon>frmUserLogin.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Reports\NewReports\01-InventoryReportSizeWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>01-InventoryReportSizeWise.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\NewReports\02-InventoryReportSectorWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>02-InventoryReportSectorWise.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\NewReports\03-SizeWiseQuota.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>03-SizeWiseQuota.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\NewReports\04-SectorWiseQuota.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>04-SectorWiseQuota.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\NewReports\05-QuotaWiseReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>05-QuotaWiseReport.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\NewReports\07-ReceiptPrint.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>07-ReceiptPrint.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\OldReports\GCKAllocationsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKAllocationsReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\OldReports\GCKCancellationsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKCancellationsReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\OldReports\GCKClientWiseProfile.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKClientWiseProfile.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\OldReports\GCKClientWisePurchaseHistory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKClientWisePurchaseHistory.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\OldReports\GCKInventory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKInventory.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\OldReports\GCKMemberInfo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKMemberInfo.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\OldReports\GCKReactivationsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKReactivationsReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\OldReports\GCKRefundReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKRefundReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\OldReports\GCKSoldPlots.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKSoldPlots.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\OldReports\GCKTransferReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GCKTransferReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\NewReports\08-MemberRegistration.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>08-MemberRegistration.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\NewReports\07-ReceiptPrintContainer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>07-ReceiptPrintContainer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Reports\NewReports\09-MasterSalesReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>09-MasterSalesReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NewReports\14-NotClearedReceiptsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>14-NotClearedReceiptsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NewReports\13-ReceiptDetailReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>13-ReceiptDetailReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NewReports\12-DuesOutstandingReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>12-DuesOutstandingReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NewReports\10-UnitsList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>10-UnitsList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NewReports\11-RecoveryDueReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>11-RecoveryDueReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmNotClearedReceiptReport.resx">
+      <DependentUpon>frmNotClearedReceiptReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReceiptDetailReport.resx">
+      <DependentUpon>frmReceiptDetailReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmDuesOutstandingReport.resx">
+      <DependentUpon>frmDuesOutstandingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmRecoveryDueReport.resx">
+      <DependentUpon>frmRecoveryDueReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReceiptAttachmentList.resx">
+      <DependentUpon>frmReceiptAttachmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmCommissionEntry.resx">
+      <DependentUpon>frmCommissionEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmProspect.resx">
+      <DependentUpon>frmProspect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmProspectLookup.resx">
+      <DependentUpon>frmProspectLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReceiptEntry - Old.resx">
+      <DependentUpon>frmReceiptEntry - Old.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmCommissionEntryList.resx">
+      <DependentUpon>frmCommissionEntryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmMasterSalesReport.resx">
+      <DependentUpon>frmMasterSalesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitListReport.resx">
+      <DependentUpon>frmUnitListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnsentCommList.resx">
+      <DependentUpon>frmUnsentCommList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnsentReceiptsList.resx">
+      <DependentUpon>frmUnsentReceiptsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReceiptsList.resx">
+      <DependentUpon>frmReceiptsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmGeneralAccountingProcessReport.resx">
+      <DependentUpon>frmGeneralAccountingProcessReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmAllocation.resx">
+      <DependentUpon>frmAllocation.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmAllocationList.resx">
+      <DependentUpon>frmAllocationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmAttachmentList.resx">
+      <DependentUpon>frmAttachmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmBlock.resx">
+      <DependentUpon>frmBlock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmCancellation.resx">
+      <DependentUpon>frmCancellation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmCancellationList.resx">
+      <DependentUpon>frmCancellationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmClientWisePurchaseParm.resx">
+      <DependentUpon>frmClientWisePurchaseParm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmDeAllocation.resx">
+      <DependentUpon>frmDeAllocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmDealloctionList.resx">
+      <DependentUpon>frmDealloctionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReceiptEntry.resx">
+      <DependentUpon>frmReceiptEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmRecoveryTypes.resx">
+      <DependentUpon>frmRecoveryTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmDirectors.resx">
+      <DependentUpon>frmDirectors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmGeneralProcessesReport.resx">
+      <DependentUpon>frmGeneralProcessesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmInstallmentPlan.resx">
+      <DependentUpon>frmInstallmentPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmInstallmentPlanSetup.resx">
+      <DependentUpon>frmInstallmentPlanSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmInventoryReport.resx">
+      <DependentUpon>frmInventoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmMemberLookup.resx">
+      <DependentUpon>frmMemberLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmMemberRegistration.resx">
+      <DependentUpon>frmMemberRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmProjects.resx">
+      <DependentUpon>frmProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReactivation.resx">
+      <DependentUpon>frmReactivation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReactivationList.resx">
+      <DependentUpon>frmReactivationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmReactivationss.resx">
+      <DependentUpon>frmReactivationss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmRefund.resx">
+      <DependentUpon>frmRefund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmRefundList.resx">
+      <DependentUpon>frmRefundList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmRevaluationList.resx">
+      <DependentUpon>frmRevaluationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmSizeCodePriceList.resx">
+      <DependentUpon>frmSizeCodePriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmSoldPlotsReport.resx">
+      <DependentUpon>frmSoldPlotsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmTransfer.resx">
+      <DependentUpon>frmTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmTransferList.resx">
+      <DependentUpon>frmTransferList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmTransferPendingList.resx">
+      <DependentUpon>frmTransferPendingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnit.resx">
+      <DependentUpon>frmUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitCategory.resx">
+      <DependentUpon>frmUnitCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitOfM.resx">
+      <DependentUpon>frmUnitOfM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmOtherRecoveryPlan.resx">
+      <DependentUpon>frmOtherRecoveryPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitRevaluation.resx">
+      <DependentUpon>frmUnitRevaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitSize.resx">
+      <DependentUpon>frmUnitSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmInstallmentPlanLookup.resx">
+      <DependentUpon>frmInstallmentPlanLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitsLookUp.resx">
+      <DependentUpon>frmUnitsLookUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnitType.resx">
+      <DependentUpon>frmUnitType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUnsentToGPList.resx">
+      <DependentUpon>frmUnsentToGPList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUserLogin.resx">
+      <DependentUpon>frmUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TMR.GP.REMSDal\TMR.GP.REMSDal.csproj">
+      <Project>{d2c2e753-c4f9-4d04-a7ac-a446e083d53c}</Project>
+      <Name>TMR.GP.REMSDal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ApproveButton.png" />
+    <Content Include="Resources\AttachButton.png" />
+    <None Include="Reports\NewReports\06-ProspectReport.rpt" />
+    <None Include="Resources\total_sales_1_48px.png" />
+    <None Include="Resources\b_deltbl.png" />
+    <Content Include="Resources\CancelButton.png" />
+    <Content Include="Resources\ClearButton.png" />
+    <None Include="Resources\DashboardBG.jpg" />
+    <Content Include="Resources\DeleteButton.png" />
+    <None Include="Resources\Dynamics-Waves.png" />
+    <Content Include="Resources\Files.png" />
+    <Content Include="Resources\Load Image.png" />
+    <Content Include="Resources\Load Image1.png" />
+    <Content Include="Resources\LoadImage.bmp" />
+    <Content Include="Resources\LoadImage.png" />
+    <Content Include="Resources\man-hi.png" />
+    <Content Include="Resources\PrintMember.png" />
+    <Content Include="Resources\PrintStatement.png" />
+    <Content Include="Resources\PrintButton.png" />
+    <None Include="Resources\process_48px.png" />
+    <None Include="Resources\project_48px.png" />
+    <Content Include="Resources\RedisplayButton.png" />
+    <None Include="Resources\request_service_48px.png" />
+    <Content Include="Resources\SaveButton.png" />
+    <Content Include="Resources\SelectButton.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

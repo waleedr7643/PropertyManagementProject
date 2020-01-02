@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMR.GP.GrandCityAddon", "TMR.GP.GrandCityAddon\TMR.GP.GrandCityAddon.csproj", "{A56DF379-44FB-4211-B2D3-DE117150F17A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{BE51DB8A-B611-4475-A635-3B0CCB61CB9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMR.GP.REMSDal", "TMR.GP.REMSDal\TMR.GP.REMSDal.csproj", "{D2C2E753-C4F9-4D04-A7AC-A446E083D53C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMR.GP.REMSAddin", "TMR.GP.REMSAddin\TMR.GP.REMSAddin.csproj", "{85014DE7-9B99-43E9-8168-91E0B3B1C790}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tmrconsult.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Setup1\\Setup1.vdproj
+		SccProjectName1 = Setup1
+		SccLocalPath1 = Setup1
+		SccProjectUniqueName2 = TMR.GP.GrandCityAddon\\TMR.GP.GrandCityAddon.csproj
+		SccProjectName2 = TMR.GP.GrandCityAddon
+		SccLocalPath2 = TMR.GP.GrandCityAddon
+		SccProjectUniqueName3 = TMR.GP.REMSAddin\\TMR.GP.REMSAddin.csproj
+		SccProjectName3 = TMR.GP.REMSAddin
+		SccLocalPath3 = TMR.GP.REMSAddin
+		SccProjectUniqueName4 = TMR.GP.REMSDal\\TMR.GP.REMSDal.csproj
+		SccProjectName4 = TMR.GP.REMSDal
+		SccLocalPath4 = TMR.GP.REMSDal
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A56DF379-44FB-4211-B2D3-DE117150F17A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56DF379-44FB-4211-B2D3-DE117150F17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56DF379-44FB-4211-B2D3-DE117150F17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56DF379-44FB-4211-B2D3-DE117150F17A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE51DB8A-B611-4475-A635-3B0CCB61CB9D}.Debug|Any CPU.ActiveCfg = Debug
+		{BE51DB8A-B611-4475-A635-3B0CCB61CB9D}.Release|Any CPU.ActiveCfg = Release
+		{D2C2E753-C4F9-4D04-A7AC-A446E083D53C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C2E753-C4F9-4D04-A7AC-A446E083D53C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C2E753-C4F9-4D04-A7AC-A446E083D53C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C2E753-C4F9-4D04-A7AC-A446E083D53C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85014DE7-9B99-43E9-8168-91E0B3B1C790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85014DE7-9B99-43E9-8168-91E0B3B1C790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85014DE7-9B99-43E9-8168-91E0B3B1C790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85014DE7-9B99-43E9-8168-91E0B3B1C790}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
